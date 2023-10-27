@@ -4,6 +4,8 @@ import java.sql.Connection;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.noel.sample.SampleTests;
@@ -21,8 +23,12 @@ public class DataSourceTests {
 	@Autowired
 	private DataSource ds;
 	
+	@Autowired
+	private SqlSessionFactory sessionFactory;
+	
 	@Test
 	public void testConnection() {
+
 		
 		try(Connection con = ds.getConnection()) {
 			
@@ -35,5 +41,21 @@ public class DataSourceTests {
 		}
 	}
 
+	@Test
+	public void testConnection2() {
+		
+		try(SqlSession session = sessionFactory.openSession();
+				Connection con = session.getConnection()){
+			
+			log.info(session);
+			
+			log.info(con);
+			
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
 }
 
