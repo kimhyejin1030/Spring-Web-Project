@@ -97,7 +97,7 @@ public class SampleController {
 	@GetMapping("/ex03")
 	public String ex03(TodoDTO todo) {
 		log.info("todo: " + todo);
-		return "ex03";
+		return "ex02";
 	}
 
 	
