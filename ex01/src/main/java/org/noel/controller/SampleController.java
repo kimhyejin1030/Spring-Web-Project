@@ -60,11 +60,11 @@ public class SampleController {
 	}
 	
 	@GetMapping("/ex01")
-	public String ex01(SampleDTO dto) {
+	public void ex01(SampleDTO dto) {
 
-		log.info("" + dto);
+		log.info(""+dto);
 
-		return "ex01";
+//		return "ex01";
 	}
 	
 	@GetMapping("/ex02")
@@ -107,6 +107,7 @@ public class SampleController {
 		return "ex02";
 	}
 	
+	// @ModelAttribute 어노테이션
 	@GetMapping("/ex04")
 	public String ex04(SampleDTO dto, @ModelAttribute("page") int page) {
 
@@ -116,11 +117,15 @@ public class SampleController {
 		return "/sample/ex04";
 	}
 	
+	// void 타입
+	// http://localhost:8088/sample/ex05
 	@GetMapping("/ex05")
 	public void ex05() {
 		log.info("/ex05........");
 	}
 	
+	// 객체 타입
+	// http://localhost:8088/sample/ex06
 	@GetMapping("/ex06")
 	public @ResponseBody SampleDTO ex06() {
 		log.info("/ex06..........");
@@ -132,6 +137,8 @@ public class SampleController {
 		return dto;
 	}
 	
+	// ResponseEntity 타입
+	// http://localhost:8088/sample/ex07
 	@GetMapping("/ex07")
 	public ResponseEntity<String> ex07() {
 		log.info("/ex07..........");
