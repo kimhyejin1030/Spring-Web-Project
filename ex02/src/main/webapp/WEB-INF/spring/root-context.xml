@@ -30,3 +30,4 @@
 	<mybatis-spring:scan base-package="org.noel.mapper"/>
 	
 </beans>
+

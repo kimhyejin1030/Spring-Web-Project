@@ -7,5 +7,9 @@ import org.noel.domain.BoardVO;
 public interface BoardMapper {
 	
 	List<BoardVO> getList();
+	
+	public void insert(BoardVO board);
+	
+	public void insertSelectKey(BoardVO board);
 
 }
