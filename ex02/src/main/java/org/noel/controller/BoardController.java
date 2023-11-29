@@ -41,6 +41,19 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	@PostMapping("/modify")
+	public String modify(BoardVO board, RedirectAttributes rttr) {
+		
+		log.info("modify:" + board);
+		
+		if(service.modify(board)) {
+			rttr.addFlashAttribute("result","success");
+		}
+		
+		return "redirect:/board/list";
+		
+	}
+	
 
 
 }
